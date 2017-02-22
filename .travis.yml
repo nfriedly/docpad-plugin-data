@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- 4
+- 6
+- stable
+before_script:
+- test/setup.sh
+deploy:
+  provider: npm
+  email: nathan@nfriedly.com
+  api_key:
+    secure: mO9zMCM5QTvKTWrPxNouGI94SmiIXkmzDSQ+0NZCv6BGvQZWG/pUMUn9w4jajXG4Rhe58OVICE6pVbxSrQu09rba+dVi4pkKNQaMlw4/4DobrS2VzmTXob3fCcq+SU/tIgxpDEyY+dVv28gTOgtO8VeVhhXAFOlST9vAS9OaSAoRjSGPd2fg08OVwJCi6Sx7qpghX+raMf98LApmbg+rwd3inSYm6emEPBSz0OvSg3gGXLqFrVJmnyU6+GPVSjqGDhZBuMih+CpCcRmxEbWN3aGkTi7UekaW0Im6JWNbm3JMTnKNuiaQi2u3+MtlHfkkO3iDRrHVUHhOxhdTgKRiX4vempeXhp7BcBJZZhR9WR/y5fWfrIC5HkIKZPpOdIZOTrCSjvHIZthapDHcqFhtt6FvC8YFj8vSFaaQqNcqyauytUi6uodleRRycyQ1cAYO8rlESWEf44bxbn/xjUJae8XG8hM7tcuDKR+Saeavy8SvKG72hnj6xjuhTCArrPuyBHLyUJeI8G2D/igDWEvuTZnVojpODkiJp/noah95J8rSwgqWnWqU+V/GmWYUA6jimMKDc+kZJKGJX4rs6EEgG2LCszKzvkYvcKzCVRdkcjtu4ILAuRlBVE5rb4mcxPGsF+/jJp+YY4z3D1ZKmf2tlV92s6dl7divbeh9HbYkoyc=
+  on:
+    tags: true
+    repo: nfriedly/docpad-plugin-datafiles
