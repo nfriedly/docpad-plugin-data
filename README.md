@@ -15,11 +15,16 @@ Forked from [docpad-plugin-data](https://github.com/SE7ENSKY/docpad-plugin-data)
 
 ## Installation
 
-   docpad install datafiles
+    docpad install datafiles
 
 ## Configuration
 
-Default config:
+**dataPaths**: An array of folders to search for data files in. All `dataPaths` are assumed to be subdirs of `docpadConfig.srcPath`, which defaults to `./src/`.
+
+**alwaysReload**: When false, data files will only be loaded once at DocPad start. When true, all files will be reloaded before each regeneration.
+
+
+Config with default options in CoffeeScript:
 
 ```cs
 docpadConfig = {
@@ -47,10 +52,6 @@ const docpadConfig = {
 
 module.exports = docpadConfig;
 ```
-
-**dataPaths**: An array of folders to search for data files in. All `dataPaths` are assumed to be subdirs of `docpadConfig.srcPath`, which defaults to `./src/`.
-
-**alwaysReload**: When false, data files will only be loaded once at DocPad start. When true, all files will be reloaded before each regeneration.
 
 Todo:
 * Support watching files for changes and only reloading changed files
