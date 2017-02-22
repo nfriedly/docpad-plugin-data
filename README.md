@@ -38,18 +38,17 @@ Config with default options in CoffeeScript:
 
 ```cs
 docpadConfig = {
-  plugins: {
+  plugins:
     datafiles: 
       dataPaths: [ 'data' ],
       camelCase: true,
-      alwaysReload: false
-  }    
+      alwaysReload: false 
   # ...
 }
 module.exports = docpadConfig
 ```
 
-Or JavaScript:
+...and in JavaScript:
 ```js
 const docpadConfig = {
   plugins: {
