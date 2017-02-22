@@ -1,6 +1,9 @@
 docpad-plugin-datafiles
 =======================
 
+[![Build Status](https://travis-ci.org/nfriedly/docpad-plugin-datafiles.svg?branch=master)](https://travis-ci.org/nfriedly/docpad-plugin-datafiles)
+[![npm-version](https://img.shields.io/npm/v/watson-developer-cloud.svg)](https://www.npmjs.com/package/watson-developer-cloud)
+
 DocPad plugin for simple data files. Loads and parses JSON, YAML, JavaScript, and CoffeeScript files from `src/data/` and 
 stores the contents on `config.templateData`, which makes the data available at `@filename` when rendering documents.
 
