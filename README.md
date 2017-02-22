@@ -1,5 +1,5 @@
-docpad-plugin-data
-==================
+docpad-plugin-datafiles
+=======================
 
 DocPad plugin for simple data files. Loads and parses JSON, YAML, JavaScript, and CoffeeScript files from `src/data/` and 
 stores the contents on `config.templateData`, which makes the data available at `@filename` when rendering documents.
@@ -10,6 +10,9 @@ Forked from [docpad-plugin-data](https://github.com/SE7ENSKY/docpad-plugin-data)
 * Documentation
 * Tests
 
+## Installation
+
+   docpad install datafiles
 
 ## Configuration
 
