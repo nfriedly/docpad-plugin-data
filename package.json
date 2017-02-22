@@ -1,7 +1,7 @@
 {
   "name": "docpad-plugin-datafiles",
   "version": "2.3.1",
-  "description": "DocPad plugin for loading json/yml/etc. and making it avaliable to documents and layouts. Forked from docpad-plugin-data with several improvements",
+  "description": "DocPad plugin for loading json/yml/etc. and making it avaliable to documents and layouts. Forked from docpad-plugin-data with several improvements.",
   "keywords": [
     "docpad",
     "docpad-plugin",

@@ -26,14 +26,13 @@ docpad install datafiles
 
 **dataPaths**: An array of folders to search for data files in. 
 Relative `dataPaths` are resolved from `docpadConfig.srcPath`, which defaults to `./src/`.
+Note that DocPad only watches for changes in folders under `docpadConfig.srcPath`.
 
 **camelCase**: converts file names with spaces, hyphens, etc. to camelCase to enable easier usage in templates.
 For example `foo-bar.json` becomes `@fooBar` when `true` vs `@['foo-bar']` when false.
 
 **alwaysReload**: Default behavior is to check the `mtime` and only reload modified files during regeneration. 
-When true, this check will be skipped and all files will always be reloaded. 
-Note that DocPad only watches for changes in folders under `docpadConfig.srcPath`.
-
+When true, this check will be skipped and all files will be reloaded at each regeneration.
 
 Config with default options in CoffeeScript:
 
