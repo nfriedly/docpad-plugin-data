@@ -1,24 +1,51 @@
 docpad-plugin-data
 ==================
 
-DocPad plugin for simple data files. Loads and parses JSON, YAML, JavaScript, and CoffeeScript files from `src/data/` and stores the contents on `config.templateData`, which makes the data avaliable at `@filename` when rendering documents.
+DocPad plugin for simple data files. Loads and parses JSON, YAML, JavaScript, and CoffeeScript files from `src/data/` and 
+stores the contents on `config.templateData`, which makes the data available at `@filename` when rendering documents.
 
-All data are automatically reloaded each time DocPad regenerates.
+Forked from [docpad-plugin-data](https://github.com/SE7ENSKY/docpad-plugin-data) with several improvements:
+* Better handling of filenames - now allows for dashes and other characters (use `@['file-name']` to reference the data then.)
+* No annoying error about uncompiled CoffeeScript
+* Documentation
+* Tests
+
 
 ## Configuration
+
+Default config:
 
 ```cs
 docpadConfig = {
   plugins: {
-    data: 
-      dataPaths: [ 'data' ] # (default)
+    datafiles: 
+      dataPaths: [ 'data' ],
+      alwaysReload: false
+  }    
   # ...
 }
-module exports = docpadConfig
+module.exports = docpadConfig
 ```
 
-All `dataPaths` are assumed to be subdirs of `docpadConfig.srcPath`, which defaults to `./src/`.
+Or JavaScript:
+```js
+const docpadConfig = {
+  plugins: {
+    datafiles: {
+      dataPaths: ['data'],
+      alwaysReload: false
+    }
+  }
+  // ...
+};
 
-## Requirements
+module.exports = docpadConfig;
+```
 
-Currently, filenames are restricted to a subset of valid JavaScript variable names: they must begin with a letter, and contain only letters, numbers, or underscores. Files with hyphens, extra dots, or other characters will be ignored.
+**dataPaths**: An array of folders to search for data files in. All `dataPaths` are assumed to be subdirs of `docpadConfig.srcPath`, which defaults to `./src/`.
+
+**alwaysReload**: When false, data files will only be loaded once at DocPad start. When true, all files will be reloaded before each regeneration.
+
+Todo:
+* Support watching files for changes and only reloading changed files
+* CI/CD

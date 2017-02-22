@@ -1,0 +1,4 @@
+<p>Index></p>
+<p>JSON: <%= @testjson.data %></p>
+<p>JS: <%= @testjs.data %></p>
+<p>yml: <%= @testyml.data %></p>
