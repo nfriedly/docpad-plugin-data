@@ -37,7 +37,7 @@ module.exports = function(BasePlugin) {
       if (!dataPaths || !dataPaths.length) {
         this.docpad.warn('Datafiles Plugin: no dataPaths defined in configuration. No data will be loaded.');
       } else {
-        dataPaths = dataPaths.map(dataPath => path.join(docpadConfig.srcPath, dataPath));
+        dataPaths = dataPaths.map(dataPath => path.resolve(docpadConfig.srcPath, dataPath));
       }
       try {
         dataPaths.forEach(dataPath => {
