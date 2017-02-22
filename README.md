@@ -4,16 +4,17 @@ docpad-plugin-datafiles
 [![Build Status](https://travis-ci.org/nfriedly/docpad-plugin-datafiles.svg?branch=master)](https://travis-ci.org/nfriedly/docpad-plugin-datafiles)
 [![npm-version](https://img.shields.io/npm/v/docpad-plugin-datafiles.svg)](https://www.npmjs.com/package/docpad-plugin-datafiles)
 
-DocPad plugin for simple data files. Loads and parses JSON, YAML, JavaScript, and CoffeeScript files from `src/data/` and 
-stores the contents on `config.templateData`, which makes the data available at `@filename` when rendering documents.
+[DocPad](http://docpad.org/) plugin for simple data files. 
+Loads and parses JSON, YAML, JavaScript, and CoffeeScript files from `src/data/` and stores the contents on 
+`config.templateData`, which makes the data available as `@filename` (or `{{filename}}` or whatever) when rendering 
+documents and layouts.
 
-Forked from [docpad-plugin-data](https://github.com/SE7ENSKY/docpad-plugin-data) with several improvements:
-* Support for files with spaces, hyphens, etc. in the name (e.g. `file-name.json becomes `@fileName`.)
-* Support for absolute folder paths
+Notable features:
+
 * Data is cached and only updated when the source file changes
-* No annoying error about uncompiled CoffeeScript
-* Documentation
-* Tests
+* Intelligent support for files with spaces, hyphens, etc. in the name (e.g. `file-name.json` becomes `@fileName`.)
+* Support for absolute folder paths
+
 
 ## Installation
 
@@ -65,6 +66,7 @@ const docpadConfig = {
 module.exports = docpadConfig;
 ```
 
-Todo:
-* Support watching files for changes and only reloading changed files
+### Credits
 
+Original code was forked from [docpad-plugin-data](https://github.com/SE7ENSKY/docpad-plugin-data). 
+Tests, documentation, various features, and other improvements by [Nathan Friedly](http://nfriedly.com/).
