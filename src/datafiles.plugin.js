@@ -3,8 +3,9 @@
 // based on https://github.com/SE7ENSKY/docpad-plugin-data
 
 const fs = require('fs');
-const YAML = require('yamljs');
 const path = require('path');
+const YAML = require('yamljs');
+const camelCase = require('camelcase');
 
 module.exports = function(BasePlugin) {
   /**
@@ -16,8 +17,11 @@ module.exports = function(BasePlugin) {
 
     config: {
       dataPaths: ['data'],
-      alwaysReload: true
+      camelCase: true,
+      alwaysReload: false
     },
+
+    mtimeCache: {},
 
     /**
      * extendTemplateData event hook
@@ -44,16 +48,20 @@ module.exports = function(BasePlugin) {
           const dataFiles = fs.readdirSync(dataPath);
           dataFiles.forEach(dataFile => {
             const fullFilePath = path.join(dataPath, dataFile);
+            if (!config.alwaysReload) {
+              const mtime = fs.statSync(fullFilePath).mtime.getTime();
+              if (this.mtimeCache[fullFilePath] === mtime) {
+                // this file is unmodified since the last load, skip it
+                return;
+              }
+              this.mtimeCache[fullFilePath] = mtime;
+            }
             const ext = path.extname(dataFile);
-            const name = path.basename(dataFile, ext);
+            let name = path.basename(dataFile, ext);
+            if (config.camelCase) {
+              name = camelCase(name);
+            }
             switch (ext) {
-              case '.json':
-                templateData[name] = JSON.parse(
-                  fs.readFileSync(fullFilePath, {
-                    encoding: 'utf8'
-                  })
-                );
-                break;
               case '.yaml':
               case '.yml':
                 templateData[name] = YAML.parse(
@@ -63,6 +71,7 @@ module.exports = function(BasePlugin) {
                 );
                 break;
               case '.coffee':
+              case '.json':
               case '.js':
                 delete require.cache[require.resolve(fullFilePath)];
                 templateData[name] = require(fullFilePath);
@@ -87,13 +96,7 @@ module.exports = function(BasePlugin) {
      * @return {DataFilesPlugin}
      */
     renderBefore: function(opts) {
-      const docpadConfig = this.docpad.getConfig();
-      const config = docpadConfig.plugins.datafiles || {};
-      if (config.alwaysReload) {
-        return this.extendTemplateData(opts);
-      } else {
-        return this;
-      }
+      return this.extendTemplateData(opts);
     }
   });
 

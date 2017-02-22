@@ -5,3 +5,5 @@
 <p>coffee: <%= @testcoffee.data %></p>
 <p>outside of src (relative): <%= @relative.data %></p>
 <p>outside of src (absolute): <%= @absolute.data %></p>
+<p>spaced file: <%= @spacedFile.data %></p>
+<p>hyphenated-file: <%= @hyphenatedFile.data %></p>
