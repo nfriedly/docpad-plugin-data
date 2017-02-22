@@ -2,7 +2,7 @@ docpad-plugin-datafiles
 =======================
 
 [![Build Status](https://travis-ci.org/nfriedly/docpad-plugin-datafiles.svg?branch=master)](https://travis-ci.org/nfriedly/docpad-plugin-datafiles)
-[![npm-version](https://img.shields.io/npm/v/watson-developer-cloud.svg)](https://www.npmjs.com/package/watson-developer-cloud)
+[![npm-version](https://img.shields.io/npm/v/docpad-plugin-datafiles.svg)](https://www.npmjs.com/package/docpad-plugin-datafiles)
 
 DocPad plugin for simple data files. Loads and parses JSON, YAML, JavaScript, and CoffeeScript files from `src/data/` and 
 stores the contents on `config.templateData`, which makes the data available at `@filename` when rendering documents.
@@ -54,4 +54,4 @@ module.exports = docpadConfig;
 
 Todo:
 * Support watching files for changes and only reloading changed files
-* CI/CD
+
