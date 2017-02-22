@@ -2,3 +2,5 @@
 <p>JSON: <%= @testjson.data %></p>
 <p>JS: <%= @testjs.data %></p>
 <p>yml: <%= @testyml.data %></p>
+<p>coffee: <%= @testcoffee.data %></p>
+<p>outside of src: <%= @outside.data %></p>
